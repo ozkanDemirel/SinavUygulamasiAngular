@@ -1,0 +1,18 @@
+<div class="container" style="margin: 20px; background-color: bisque">
+  <div class="row">
+    <div
+      class="card text-white bg-primary mb-3"
+      style="max-width: 20rem; margin: 5px"
+      *ngFor="let lesson of lessons"
+      (click)="setCurrentLesson(lesson)"
+      routerLink="/subjects/lessons/{{ lesson.lessonId }} "
+      routerLinkActive="active"
+    >
+      <div class="card-header">Header</div>
+      <div class="card-body">
+        <h4 class="card-title">{{ lesson.lessonName }}</h4>
+        <p class="card-text">Sınav Konusunu Seçmek İçin Tıklayın</p>
+      </div>
+    </div>
+  </div>
+</div>

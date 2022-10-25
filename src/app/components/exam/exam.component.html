@@ -1,0 +1,199 @@
+<div class="conteiner" style="margin-top: 5rem">
+  <div
+    class="card text-white bg-primary mb-3"
+    style="width: 50rem; margin: auto"
+  >
+    <div class="d-flex p-3" style="justify-content: space-around"></div>
+    <ng-container *ngIf="!isQuizCompleted">
+      <div class="d-flex py-3" style="justify-content: space-around">
+        <div class="score">
+          <h5>{{ point }} Points</h5>
+        </div>
+        <div class="question-remain">
+          <span style="font-style: italic">
+            {{ currentQuestion + 1 }} / {{ examList.length }}</span
+          >
+        </div>
+        <div class="timer">
+          <h5>60 sec</h5>
+        </div>
+      </div>
+      <div class="progress mb-3">
+        <div
+          class="progress-bar bg-info"
+          role="progressbar"
+          style="width: 50%"
+          aria-valuenow="50"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+
+      <div class="question">
+        <div class="list-group">
+          <h4
+            href="#"
+            class="list-group-item list-group-item-action"
+            class="list-group-item"
+          >
+            <span>{{ currentQuestion + 1 }})</span>
+            {{ examList[currentQuestion]?.questionText }}
+          </h4>
+        </div>
+        <div class="options">
+          <div class="list-group">
+            <div
+            
+            
+            appChangeBg
+              [isCorrect]="
+                examList[currentQuestion]?.firstOptionText ===
+                examList[currentQuestion]?.trueOptionText
+              "
+
+              style="margin: 5px"
+              (click)="
+                answer(
+                  currentQuestion + 1,
+                  examList[currentQuestion]?.firstOptionText
+                )
+              "
+              href="#"
+              class="list-group-item list-group-item-action"
+              class="list-group-item"
+            >
+              {{ examList[currentQuestion]?.firstOptionText }}
+            </div>
+
+            <div
+              appChangeBg
+              [isCorrect]="
+                examList[currentQuestion]?.secondOptionText ===
+                examList[currentQuestion]?.trueOptionText
+              "
+              (click)="
+                answer(
+                  currentQuestion + 1,
+                  examList[currentQuestion]?.secondOptionText
+                )
+              "
+              style="margin: 5px"
+              href="#"
+              class="list-group-item list-group-item-action"
+              class="list-group-item"
+            >
+              {{ examList[currentQuestion]?.secondOptionText }}
+            </div>
+            <div
+              appChangeBg
+              [isCorrect]="
+                examList[currentQuestion]?.thirdOptionText ===
+                examList[currentQuestion]?.trueOptionText
+              "
+              (click)="
+                answer(
+                  currentQuestion + 1,
+                  examList[currentQuestion]?.thirdOptionText
+                )
+              "
+              style="margin: 5px"
+              href="#"
+              class="list-group-item list-group-item-action"
+              class="list-group-item"
+            >
+              {{ examList[currentQuestion]?.thirdOptionText }}
+            </div>
+            <div
+              appChangeBg
+              [isCorrect]="
+                examList[currentQuestion]?.fourthOptionText ===
+                examList[currentQuestion]?.trueOptionText
+              "
+              (click)="
+                answer(
+                  currentQuestion + 1,
+                  examList[currentQuestion]?.fourthOptionText
+                )
+              "
+              style="margin: 5px"
+              href="#"
+              class="list-group-item list-group-item-action"
+              class="list-group-item"
+            >
+              {{ examList[currentQuestion]?.fourthOptionText }}
+            </div>
+            <div
+              appChangeBg
+              [isCorrect]="
+                examList[currentQuestion]?.fifthOptionText ===
+                examList[currentQuestion]?.trueOptionText
+              "
+              (click)="
+                answer(
+                  currentQuestion + 1,
+                  examList[currentQuestion]?.fifthOptionText
+                )
+              "
+              style="margin: 5px"
+              href="#"
+              class="list-group-item list-group-item-action"
+              class="list-group-item"
+            >
+              {{ examList[currentQuestion]?.fifthOptionText }}
+            </div>
+          </div>
+        </div>
+        <div class="d-flex p-3" style="justify-content: space-between">
+          <button
+            class="button"
+            [disabled]="currentQuestion === 0"
+            (click)="previousQuestion()"
+            style="background-color: inherit; border: none"
+          >
+            <i
+              class="fa text-white fas fa-chevron-circle-left fa-3x"
+              aria-hidden="true"
+            ></i>
+          </button>
+          <button
+            class="button"
+            style="background-color: inherit; border: none"
+          >
+            <i class="fa fa-refresh text-white fa-3x" aria-hidden="true"> </i>
+            <p style="color: white; margin: auto">Temizle</p>
+          </button>
+          <button
+            class="button"
+            (click)="nextQuestion()"
+            style="background-color: inherit; border: none"
+          >
+            <i
+              class="fa text-white fas fa-chevron-circle-right fa-3x"
+              aria-hidden="true"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isQuizCompleted">
+      <div class="row d-flex justify-content-between">
+        <img
+          style="width: 50%"
+          class="img-fluid col-sm-12 mx-auto"
+          src="https://icon-library.com/images/celebration-icon-png/celebration-icon-png-7.jpg"
+          alt=""
+        />
+        <div class="result text-center col-md-6 col-sm-12">
+          <h3>
+            Congratulations!! <br />You have completed the quiz. <br />Below is
+            your result:
+          </h3>
+          <p>Total Question Attempted : {{ examList.length }}</p>
+          <p>Total Correct Answered : {{ correctOption }}</p>
+          <p>Total Wrong Answered : {{ incorrectOption }}</p>
+          <p>Your Score : {{ point }} Points</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
