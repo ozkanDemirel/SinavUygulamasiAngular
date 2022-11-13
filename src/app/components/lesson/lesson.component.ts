@@ -24,6 +24,8 @@ export class LessonComponent implements OnInit {
     })
   }
 
+ 
+
   
   getCurrentLessonClass(lesson:Lesson){
     if(lesson ==this.currentLesson){

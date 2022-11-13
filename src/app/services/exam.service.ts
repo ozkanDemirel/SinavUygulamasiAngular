@@ -18,4 +18,8 @@ export class ExamService {
     let newPath = this.apiUrl+ "exams/getAllBySubjectId?subjectId="+subjectId;
     return this.httpClient.get<ListResponseModel<Exam>>(newPath);
   }
+
+  addExam(){
+    let newPath = this.apiUrl +"exams/"
+  }
 }

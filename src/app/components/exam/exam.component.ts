@@ -10,6 +10,7 @@ import { ExamService } from 'src/app/services/exam.service';
 })
 export class ExamComponent implements OnInit {
 
+
   exams: Exam[]=[]
   examList:any[]=[];
   optionList:any[]=[];
@@ -18,6 +19,7 @@ export class ExamComponent implements OnInit {
   incorrectOption:number=0;
   point:number=0;
   isQuizCompleted : boolean = false;
+  
   constructor(private examService:ExamService, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
