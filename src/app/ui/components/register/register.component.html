@@ -1,0 +1,93 @@
+
+<div class="col-md-12">
+  <div class="card card-container border-success" >
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        
+        <input
+          type="text"
+          class="form-control mb-4"
+          name="username"
+          placeholder="Kullanıcı Adı"
+          [(ngModel)]="form.username"
+          required
+          minlength="3"
+          maxlength="20"
+          #username="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+          <div *ngIf="username.errors['required']">Kullanıcı Adı Gereklidir</div>
+          <div *ngIf="username.errors['minlength']">
+            Kullanıcı Adı En Az 3 Karakter Olmalıdır
+          </div>
+          <div *ngIf="username.errors['maxlength']">
+            Kullanıcı Adı En Fazla 20 Karakter Olmalıdır
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+       
+        <input
+          type="email"
+          class="form-control mb-4"
+          name="email"
+          placeholder="Email Adres"
+          [(ngModel)]="form.email"
+          required
+          email
+          #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+          <div *ngIf="email.errors['required']">Email Adresi gereklidir</div>
+          <div *ngIf="email.errors['email']">
+            Lütfen Geçerli Bir Email Adresi Girin
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+    
+        <input
+          type="password"
+          class="form-control mb-4"
+          name="password"
+          placeholder="Parola"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">Parola Gereklidir</div>
+          <div *ngIf="password.errors['minlength']">
+            Parola En Az 6 Karakter Uzunluğunda Olmaldır
+          </div>
+        </div>
+      </div>
+      <div class="form-group mb-4">
+        <button class="btn btn-primary btn-block"> Kayıt Ol</button>
+      </div>
+
+      <div class="alert alert-warning"  *ngIf="f.submitted && isSignUpFailed">
+        Kayıt İşlemi Başarısız<br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
+  </div>
+</div>

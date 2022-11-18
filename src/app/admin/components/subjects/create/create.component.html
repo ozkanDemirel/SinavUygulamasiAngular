@@ -1,0 +1,21 @@
+<mat-form-field appearance="outline">
+  <mat-label>Dersler</mat-label>
+  <mat-select>
+    <mat-option 
+    *ngFor="let lesson of lessons" 
+    (click)="getLessonId(lesson.lessonId)"
+    value="one" 
+    
+    >
+    {{lesson.lessonId}}.{{lesson.lessonName}}</mat-option>
+    
+  </mat-select>
+  
+</mat-form-field>
+  
+  <mat-form-field appearance="outline" class="subject-create">
+    <mat-label>Konu Adı</mat-label>
+    <input matInput #txtSubjectName>
+  </mat-form-field>
+
+  <button mat-stroked-button color="basic"  class="btn" (click)="create(txtSubjectName)">Konu Ekle </button>

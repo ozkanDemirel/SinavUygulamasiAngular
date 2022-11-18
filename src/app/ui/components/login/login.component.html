@@ -1,0 +1,93 @@
+<!--
+<div class="container" style="margin: 20px ;">
+    <div class = "row" style="width: 500px ; margin-left: 400px ;">
+        
+
+    
+
+      <div class="form-group">
+        <label for="username" >Kullanıcı Adınız</label>
+        <input #txtUserName type="text"  class="form-control" id="username"  placeholder="Kullanıcı Adınız">
+        <small  class="form-text text-muted" >****</small>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label mt-4">Parola</label>
+        <input #txtPassword type="password"  class="form-control" id="password" placeholder="Parola">
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-5" (click)="login(txtUserName,txtPassword)">Giriş</button>
+      
+  
+
+</div>
+</div>
+-->
+
+<div class="col-md-12">
+  <div class="card card-container border-success">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <form
+      *ngIf="!isLoggedIn"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group mb-4">
+      
+        <input
+          type="text"
+          class="form-control mt-2"
+          name="username"
+          placeholder="Kullanıcı Adı"
+          [(ngModel)]="form.username"
+          required
+          #username="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+        />
+        <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
+          Kullanıcı Adı Gereklidir
+        </div>
+      </div>
+      <div class="form-group">
+        
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          placeholder="Parola"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        />
+        <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="password.errors['required']">Parola Gereklidir</div>
+          <div *ngIf="password.errors['minlength']">
+             Parola En Az 6 Karakter Uzunluğunda Olmalıdır
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block mt-4">
+          Giriş
+        </button>
+      </div>
+      <div class="form-group">
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger mt-4" role="alert">
+          Giriş Başarısız {{ errorMessage }}
+        </div>
+      </div>
+    </form>
+
+    <div class="alert alert-success mt-4" *ngIf="isLoggedIn">
+       {{ roles }} Olarak Giriş Yapıldı
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<mat-form-field appearance="outline">
+  <mat-label>Dersler</mat-label>
+  <mat-select>
+    
+    <mat-option
+      *ngFor="let subject of subjects"
+      (click)="getSubjectId(subject.subjectId)"
+      value="one"
+    >
+      {{ subject.subjectId }}.{{ subject.subjectName }}</mat-option
+    >
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="exam-create">
+  <mat-label>questionText</mat-label>
+  <input matInput #txtQuestionText />
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="exam-create">
+  <mat-label>firstOptionText</mat-label>
+  <input matInput #txtFirstOptionText />
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="exam-create">
+  <mat-label>secondOptionText</mat-label>
+  <input matInput #txtSecondOptionText />
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="exam-create">
+  <mat-label>thirdOptionText</mat-label>
+  <input matInput #txtThirdOptionText />
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="exam-create">
+  <mat-label>fourthOptiontText</mat-label>
+  <input matInput #txtFourthOptiontText />
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="exam-create">
+  <mat-label>fifthOptionText</mat-label>
+  <input matInput #txtFifthOptiontText />
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="exam-create">
+  <mat-label>correctOptionText</mat-label>
+  <input matInput #txtCorrectOptiontText />
+</mat-form-field>
+
+<button
+  mat-stroked-button
+  color="primary"
+  class="btn"
+  (click)="
+    create(
+      txtQuestionText,
+      txtFirstOptionText,
+      txtSecondOptionText,
+      txtThirdOptionText,
+      txtFourthOptiontText,
+      txtFifthOptiontText,
+      txtCorrectOptiontText
+    )
+  "
+>
+  Ders Ekle
+</button>

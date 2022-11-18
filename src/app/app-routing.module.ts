@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
+import { LessonsComponent } from './admin/components/lessons/lessons.component';
+import { LessonsModule } from './admin/components/lessons/lessons.module';
 import { LayoutComponent } from './admin/layout/layout.component';
-import { ExamComponent } from './components/exam/exam.component';
 import { HomeComponent } from './ui/components/home/home.component';
-import { LessonComponent } from './components/lesson/lesson.component';
-import { LoginComponent } from './components/login/login.component';
-import { SubjectComponent } from './components/subject/subject.component';
-import { ExamsComponent } from './ui/components/exams/exams.component';
+
 
 const routes: Routes = [
   /* {path:"exams/subjects/:subjectId", component:ExamComponent},
@@ -33,10 +31,22 @@ const routes: Routes = [
       },
       {
         path: 'lessons',
-        loadChildren: () =>
+        component:LessonsComponent,
+        children:[
+         
+          {
+            path:'update',
+            loadChildren: () =>
+            import('./admin/components/lessons/update/update.module').then(
+              (module) => module.UpdateModule,
+            )
+            },
+
+        ]
+        /*loadChildren: () =>
           import('./admin/components/lessons/lessons.module').then(
             (module) => module.LessonsModule
-          ),
+          ),*/
       },
       {
         path: 'subjects',
@@ -45,6 +55,8 @@ const routes: Routes = [
             (module) => module.SubjectsModule
           ),
       },
+      
+      
     ],
   },
   { path: '', component: HomeComponent },
@@ -69,6 +81,50 @@ const routes: Routes = [
         (module) => module.SubjectsModule
       ),
   },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./ui/components/register/register.module').then(
+        (module) => module.RegisterModule
+      ),
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./ui/components/login/login.module').then(
+        (module) => module.LoginModule
+      ),
+  },
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./ui/components/user/user.module').then(
+        (module) => module.UserModule
+      ),
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./ui/components/profile/profile.module').then(
+        (module) => module.ProfileModule
+      ),
+  },
+  {
+    path:"subjects/lessons/:lessonId", 
+    loadChildren:() =>
+      import('./ui/components/subjects/subjects.module').then(
+        (module) => module.SubjectsModule
+      )
+  },
+  {
+    path:"exams/subjects/:subjectId", 
+    loadChildren:() =>
+    import('./ui/components/exams/exams.module').then(
+      (module) => module.ExamsModule
+    )
+    },
+  
+
 ];
 
 @NgModule({

@@ -1,0 +1,74 @@
+
+.options{
+    margin: 10px;
+    width: 780px;
+    border-style: solid ;
+    padding: 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: justify;
+}
+/*
+.options.selected{
+    background-color: aqua;
+}*/
+
+.selected{
+    background-color: lightgreen;
+}
+
+.optionsGroup{
+    background-color: transparent;
+}
+
+.optionsGroup.selected{
+    background-color: aqua;
+}
+
+#questionNumber{
+    padding: 13px;
+    
+    font-size: 20px;
+    color: white;
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    background-color: grey;
+    border-radius: 50%;
+}
+
+#examBoard{
+    width: 50rem; 
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 20px;
+    -moz-box-shadow: 0px 20px 20px rgba(15, 187, 75, 0.3);
+    -webkit-box-shadow: 0px 20px 20px rgba(15, 187, 75, 0.3);
+    box-shadow: 0px 20px 20px rgba(15, 187, 75, 0.3);
+}
+
+#examBoardBottom{
+    justify-content: space-between; 
+    
+    border-radius: 20px;
+    -moz-box-shadow: 0px 20px 20px rgba(15, 187, 75, 0.3);
+    -webkit-box-shadow: 0px 20px 20px rgba(15, 187, 75, 0.3);
+    box-shadow: 0px 20px 20px rgba(15, 187, 75, 0.3);
+}
+
+#questionTextArea{
+    margin: 10px;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+  
+  

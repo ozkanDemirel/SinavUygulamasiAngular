@@ -1,0 +1,22 @@
+  <div class="conteiner m-4">
+  <div class="card border-success mb-3" *ngIf="currentUser; else loggedOut" style="max-width: 20rem; border-radius: 20px;" >
+    <div class="card-header"> 
+      <h3>Profil: 
+      <strong>{{ currentUser.username }}</strong> 
+    </h3></div>
+    <div class="card-body">
+      <p>
+        <strong>Email:</strong>
+        {{ currentUser.email }}
+      </p>
+      <strong>Rol:</strong>
+      <ul>
+        <li *ngFor="let role of currentUser.roles">
+          {{ role }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <ng-template #loggedOut>
+    Lütfen Giriş Yapın
+  </ng-template>

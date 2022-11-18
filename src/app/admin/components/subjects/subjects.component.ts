@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClientService } from 'src/app/services/common/http-client.service';
+import { LessonService } from 'src/app/services/common/models/lesson.service';
 
 @Component({
   selector: 'app-subjects',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./subjects.component.css']
 })
 export class SubjectsComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor(private httpClientService: HttpClientService) { }
 
   ngOnInit(): void {
+    
   }
+
+ 
 
 }

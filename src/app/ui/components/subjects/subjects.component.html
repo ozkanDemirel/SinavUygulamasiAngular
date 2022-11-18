@@ -1,1 +1,17 @@
-<p>subjects works!</p>
+<div class="container" style="margin: 20px; background-color: bisque">
+    <div class="row">
+      <div
+        class="card text-white bg-primary mb-3"
+        style="max-width: 20rem; margin: 5px"
+        *ngFor="let subject of subjects"
+        (click)="setCurrentSubject(subject)"
+        routerLink="/exams/subjects/{{ subject.subjectId }} "
+        routerLinkActive="active"
+      >
+        <div class="card-header">Sınava Başla</div>
+        <div class="card-body">
+          <h4 class="card-title">{{ subject.subjectName }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>

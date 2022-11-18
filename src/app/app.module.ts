@@ -10,37 +10,40 @@ import { LessonComponent } from './components/lesson/lesson.component';
 import { HomeComponent } from './components/home/home.component';
 import { SubjectComponent } from './components/subject/subject.component';
 import { ExamComponent } from './components/exam/exam.component';
-import { ChangeBgDirective } from './directives/change-bg.directive';
-import { LoginComponent } from './components/login/login.component';
+
 import { AdminModule } from './admin/admin.module';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BaseComponent } from './base/base/base.component';
+import { DeleteDirective } from './directives/admin/delete.directive';
+import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.component';
 import { UiModule } from './ui/ui.module';
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    
+    AppComponent,  
     NaviComponent,
-         LessonComponent,
-         HomeComponent,
-         SubjectComponent,
-         ExamComponent,
-         ChangeBgDirective,
-         LoginComponent,
-         
-         
-    
+    HomeComponent,
+    ExamComponent,
+    LessonComponent,
+    SubjectComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    NgxSpinnerModule,
     AppRoutingModule,
     HttpClientModule,
     AdminModule,
     UiModule
   ],
-  providers: [],
+  providers: [
+    {provide:"baseUrl", useValue:"http://localhost:8080/api", multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
