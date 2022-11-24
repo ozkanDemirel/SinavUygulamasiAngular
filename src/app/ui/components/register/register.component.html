@@ -13,11 +13,61 @@
       #f="ngForm"
       novalidate
     >
+    <div class="form-group">
+        
+      <input
+        type="text"
+        class="form-control mt-3"
+        name="firstName"
+        placeholder="İsim"
+        [(ngModel)]="form.firstName"
+        required
+        minlength="3"
+        maxlength="20"
+        #firstName="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && firstName.errors }"
+      />
+      <div class="invalid-feedback"  *ngIf="firstName.errors && f.submitted">
+        <div *ngIf="firstName.errors['required']">İsim Alanını Doldurunuz</div>
+        <div *ngIf="firstName.errors['minlength']">
+          İsim En Az 3 Karakter Olmalıdır
+        </div>
+        <div *ngIf="firstName.errors['maxlength']">
+          İsim En Fazla 20 Karakter Olmalıdır
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+        
+      <input
+        type="text"
+        class="form-control mt-3"
+        name="lastName"
+        placeholder="Soyisim"
+        [(ngModel)]="form.lastName"
+        required
+        minlength="3"
+        maxlength="20"
+        #lastName="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && lastName.errors }"
+      />
+      <div class="invalid-feedback" *ngIf="lastName.errors && f.submitted">
+        <div *ngIf="lastName.errors['required']">Soyisim Alanını Doldurunuz</div>
+        <div *ngIf="lastName.errors['minlength']">
+          İsim En Az 3 Karakter Olmalıdır
+        </div>
+        <div *ngIf="lastName.errors['maxlength']">
+          İsim En Fazla 20 Karakter Olmalıdır
+        </div>
+      </div>
+    </div>
+
       <div class="form-group">
         
         <input
           type="text"
-          class="form-control mb-4"
+          class="form-control mt-3"
           name="username"
           placeholder="Kullanıcı Adı"
           [(ngModel)]="form.username"
@@ -27,7 +77,7 @@
           #username="ngModel"
           [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
         />
-        <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+        <div class="invalid-feedback"  *ngIf="username.errors && f.submitted">
           <div *ngIf="username.errors['required']">Kullanıcı Adı Gereklidir</div>
           <div *ngIf="username.errors['minlength']">
             Kullanıcı Adı En Az 3 Karakter Olmalıdır
@@ -37,11 +87,13 @@
           </div>
         </div>
       </div>
+
+
       <div class="form-group">
        
         <input
           type="email"
-          class="form-control mb-4"
+          class="form-control mt-3"
           name="email"
           placeholder="Email Adres"
           [(ngModel)]="form.email"
@@ -50,18 +102,20 @@
           #email="ngModel"
           [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
         />
-        <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+        <div class="invalid-feedback"  *ngIf="email.errors && f.submitted">
           <div *ngIf="email.errors['required']">Email Adresi gereklidir</div>
           <div *ngIf="email.errors['email']">
             Lütfen Geçerli Bir Email Adresi Girin
           </div>
         </div>
       </div>
+
+
       <div class="form-group">
     
         <input
           type="password"
-          class="form-control mb-4"
+          class="form-control mt-3"
           name="password"
           placeholder="Parola"
           [(ngModel)]="form.password"
@@ -70,14 +124,14 @@
           #password="ngModel"
           [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
         />
-        <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+        <div class="invalid-feedback"  *ngIf="password.errors && f.submitted">
           <div *ngIf="password.errors['required']">Parola Gereklidir</div>
           <div *ngIf="password.errors['minlength']">
             Parola En Az 6 Karakter Uzunluğunda Olmaldır
           </div>
         </div>
       </div>
-      <div class="form-group mb-4">
+      <div class="form-group mb-4 mt-4">
         <button class="btn btn-primary btn-block"> Kayıt Ol</button>
       </div>
 
@@ -86,8 +140,12 @@
       </div>
     </form>
 
-    <div class="alert alert-success" *ngIf="isSuccessful">
-      Your registration is successful!
+    <div class="container"  *ngIf="isSuccessful" >
+      <div class="alert alert-success">Kaydınız Başarılı Bir Şekilde Gerçekleştirildi. 
+        Giriş Yapabilirsiniz.
+      </div>
+      <button class="btn btn-primary btn-block mt-4" routerLink="login">Giriş Yap</button>
     </div>
+    
   </div>
 </div>

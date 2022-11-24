@@ -15,6 +15,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DialogModule } from 'src/app/dialogs/dialog.module';
 import { DeleteDirectiveModule } from 'src/app/directives/admin/delete-directive.module';
 import { UpdateModule } from './update/update.module';
+import { UpdateComponent } from './update/update.component';
+
 
 
 
@@ -23,12 +25,11 @@ import { UpdateModule } from './update/update.module';
         LessonsComponent,
         CreateComponent,
         ListComponent,
-    
-        
+        UpdateComponent
     ],
     imports: [
         CommonModule,
-        RouterModule.forChild([
+       RouterModule.forChild([
             { path: "", component: LessonsComponent }
         ]),
         MatSidenavModule,
@@ -40,7 +41,7 @@ import { UpdateModule } from './update/update.module';
         MatDialogModule,
         DialogModule,
         DeleteDirectiveModule,
-        UpdateModule
+        //UpdateModule,
         
     ]
 })

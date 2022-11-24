@@ -1,8 +1,8 @@
-<div class="container" style="margin: 20px; background-color: bisque">
+<div class="container" style="margin: 20px;">
     <div class="row">
       <div
-        class="card text-white bg-primary mb-3"
-        style="max-width: 20rem; margin: 5px"
+        class="card border-success mb-3"
+        id="card"
         *ngFor="let subject of subjects"
         (click)="setCurrentSubject(subject)"
         routerLink="/exams/subjects/{{ subject.subjectId }} "

@@ -69,7 +69,7 @@ export class CreateComponent extends BaseComponent implements OnInit {
       this.lessons=response.data
   })
   }
-getSubjectsByLesson(lessonId:number){
+getSubjectsByLesson(lessonId=this.lessonId){
     this.subjectService.getSubjectsByLesson(lessonId).subscribe(response=>{
       this.subjects = response.data
     })

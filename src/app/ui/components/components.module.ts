@@ -9,6 +9,7 @@ import { RegisterModule } from './register/register.module';
 import { LoginModule } from './login/login.module';
 import { UserModule } from './user/user.module';
 import { ProfileModule } from './profile/profile.module';
+import { AboutAppModule } from './about-app/about-app.module';
 
 
 
@@ -24,8 +25,7 @@ import { ProfileModule } from './profile/profile.module';
     LoginModule,
     UserModule,
     ProfileModule,
-    
-    
+    AboutAppModule
     
   ]
 })

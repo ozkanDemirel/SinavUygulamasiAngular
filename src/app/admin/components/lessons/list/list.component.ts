@@ -25,7 +25,8 @@ export class ListComponent extends BaseComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   lessons:any[]=[]
   lesson:ListLesson;
-
+  currentLesson:any
+  //lessonId:number
 
   constructor(
     spinner:NgxSpinnerService ,
@@ -38,8 +39,6 @@ export class ListComponent extends BaseComponent implements OnInit {
 
   async ngOnInit() {
    this.getLesson();
-   //await this.getLessons();
-   // await this.getLesson();
   }
 
 
@@ -71,15 +70,14 @@ export class ListComponent extends BaseComponent implements OnInit {
   })
   }
 
-  setLessonId(id:number){
-    this.lesson.setlessonId(id);
+  setLessonId(lessonId:number){
+   const lesson:ListLesson  = new ListLesson();
+   lesson.lessonId=lessonId;
     
   }
 
-  openDialog(id:number) {
+  openDialog() {
     this.dialog.open(UpdateComponent);
-    
-    
   }
 
 }

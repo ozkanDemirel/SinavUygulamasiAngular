@@ -1,27 +1,17 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#" routerLink="">Sınav Uygulaması</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarColor01"
-        aria-controls="navbarColor01"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav me-auto">
+
+      <div class="collapse navbar-collapse" id="navbarColor01" >
+        
+        <ul class="navbar-nav me-auto" >
           <li class="nav-item">
             <a
-              class="nav-link active"
+              class="nav-link"
               href="#"
-              routerLink="/ui"
-              routerLinkActive="active"
+              routerLink=""             
               >Ana Sayfa
-              <span class="visually-hidden">(current)</span>
+              
             </a>
           </li>
           <li class="nav-item" *ngIf="isLoggedIn">
@@ -32,30 +22,6 @@
               routerLinkActive="active"
               >Dersler</a
             >
-          </li>
-         
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#"
-              routerLink="register"
-              routerLinkActive="active"
-              >Kayıt Ol</a
-            >
-          </li>
-
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#"
-              routerLink="login"
-              routerLinkActive="active"
-              >Giriş</a
-            >
-          </li>
-
-          <li class="nav-item" *ngIf="isLoggedIn">
-            <a href="#"  class="nav-link" (click)="logout()" routerLink="">Çıkış</a>
           </li>
 
           <li class="nav-item" *ngIf="isLoggedIn">
@@ -69,7 +35,10 @@
           </li>
          
           <li class="nav-item">
-            <a class="nav-link" href="#">Uygulama Hakkında</a>
+            <a class="nav-link" href="#"
+            routerLink="about"
+            routerLinkActive="active"
+            >Uygulama Hakkında</a>
           </li>
           
             <li class="nav-item" *ngIf="showAdminBoard">
@@ -81,26 +50,38 @@
                 >Yönetim Paneli</a
               >
             </li>
-
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
           
         </ul>
-        <form class="d-flex">
-          <input
-            class="form-control me-sm-2"
-            type="text"
-            placeholder="Search"
-          />
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
+        <div class="d-flex justify-content-end me-5">
+
+          <ul class="navbar-nav me-auto " >
+          <li class="nav-item" *ngIf="!isLoggedIn" >
+            <a
+              class="nav-link"
+              href="#"
+              routerLink="register"
+              routerLinkActive="active"
+              >Kayıt Ol</a
+            >
+          </li>
+
+          <li class="nav-item" *ngIf="!isLoggedIn" >
+            <a
+              class="nav-link"
+              href="#"
+              routerLink="login"
+              routerLinkActive="active"
+              >Giriş</a
+            >
+          </li>
+
+          <li class="nav-item" *ngIf="isLoggedIn" >
+            <a href="#"  class="nav-link" (click)="logout()" routerLink="">Çıkış</a>
+          </li>
+        </ul>
+        </div>
+        
+       
       </div>
     </div>
   </nav>

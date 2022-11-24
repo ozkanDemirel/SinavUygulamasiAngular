@@ -10,7 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
-    UpdateComponent
+    //UpdateComponent
   ],
   imports: [
     CommonModule,

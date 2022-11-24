@@ -75,7 +75,7 @@
         </div>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary btn-block mt-4">
+        <button class="btn btn-primary btn-block mt-4"  >
           Giriş
         </button>
       </div>
@@ -86,8 +86,10 @@
       </div>
     </form>
 
-    <div class="alert alert-success mt-4" *ngIf="isLoggedIn">
-       {{ roles }} Olarak Giriş Yapıldı
+    <div class="container" *ngIf="isLoggedIn" >
+      <div class="alert alert-success mt-4">{{ roles }} Olarak Giriş Yapıldı</div>
+       <button class="btn btn-primary btn-block mt-4" routerLink="">Tamam</button>
     </div>
+    
   </div>
 </div>

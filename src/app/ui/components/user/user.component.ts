@@ -22,10 +22,10 @@ import { UserService } from 'src/app/services/common/models/user.service';
               const res = JSON.parse(err.error);
               this.content = res.message;
             } catch {
-              this.content = `Error with status: ${err.status} - ${err.statusText}`;
+              this.content = `Hata: ${err.status} - ${err.statusText}`;
             }
           } else {
-            this.content = `Error with status: ${err.status}`;
+            this.content = `Hata: ${err.status}`;
           }
         }
       });

@@ -1,6 +1,7 @@
 
 
-   <table mat-table [dataSource]="lessons" class="mat-elevation-z8">
+   <table mat-table [dataSource]="lessons" class="mat-elevation-z8"
+   >
 
     <ng-container matColumnDef="lessonCode">
       <th mat-header-cell *matHeaderCellDef class="tblHeader"> Ders Kodu </th>
@@ -15,13 +16,16 @@
     <ng-container matColumnDef="edit" >
       <th mat-header-cell *matHeaderCellDef> </th>
       <td mat-cell *matCellDef="let element" 
-      routerLink="update" routerLinkActive="active" 
-      class="edit" (click)="openDialog(1)" 
+      routerLink="update" 
+      class="edit" 
+      routerLink="update/{{element.lessonId}}"
+      (click)="openDialog()"
+      
       
       > 
       <img src ="../../../../../assets/icons8-pencil-24.png"> </td>
     </ng-container>
-
+    <!--(click)="setLessonId(element.lessonId)"-->
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>  </th>
       <td  mat-cell *matCellDef="let element"  appDelete

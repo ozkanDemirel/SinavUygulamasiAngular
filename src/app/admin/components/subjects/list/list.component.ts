@@ -26,6 +26,7 @@ export class ListComponent extends BaseComponent implements OnInit {
   lessons:any[]=[]
   currentLesson:any;
   subjects:any[]=[];
+  lessonId:number
 
   constructor(
     spinner:NgxSpinnerService ,
@@ -58,8 +59,12 @@ export class ListComponent extends BaseComponent implements OnInit {
       this.lessons=response.data
     })
   }
+  getLessonId(id:number){
+    this.lessonId=id
+    
+  }
 
-  getSubjectsByLesson(lessonId:number){
+  getSubjectsByLesson(lessonId:number=this.lessonId){
     this.subjectService.getSubjectsByLesson(lessonId).subscribe(response=>{
       this.subjects = response.data
     })

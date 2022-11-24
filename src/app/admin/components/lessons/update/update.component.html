@@ -1,5 +1,6 @@
 <h1 mat-dialog-title >Ders Güncelleme İşlemleri </h1>
-<div *ngFor="let lesson of lessons">
+<div *ngFor="let lesson of lessons" (click)="getLessonId(lesson.lessonId)"
+>
 
   <mat-form-field appearance="outline" class="lesson-update" >
     <mat-label>Ders Kodu</mat-label>
@@ -9,10 +10,11 @@
 
   <mat-form-field appearance="outline" class="lesson-update" >
     <mat-label >Ders Adı</mat-label>
-    <input matInput #txtLessonName [value]="lesson.lessonName" > 
+    <input matInput #txtLessonName [value]="lesson.lessonName"
+     > 
   </mat-form-field>
 
-  <button mat-stroked-button color="basic" class="btn" (click)="update(txtLessonCode, txtLessonName)">Güncelle</button>
+  <button mat-stroked-button color="basic" class="btn" (click)="update(txtLessonCode,txtLessonName)" >Güncelle</button>
 
 </div>
 

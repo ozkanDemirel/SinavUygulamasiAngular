@@ -3,6 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 import { firstValueFrom,Observable } from 'rxjs';
 import { CreateLesson } from 'src/app/contracts/create-lesson';
 import { ListLesson } from 'src/app/contracts/list-lesson';
+import { UpdateLesson } from 'src/app/contracts/update-lesson';
 import { ListResponseModel } from 'src/app/models/listResponseModel';
 import { HttpClientService } from '../http-client.service';
 
@@ -40,29 +41,31 @@ export class LessonService {
     return await promiseData;
   }*/
 
-  apiUrl:string ="http://localhost:8080/api/lessons/";
+ // apiUrl:string ="http://localhost:8080/api/lessons/";
 
   getLessons(): Observable<ListResponseModel<ListLesson>> {
-    let newApiUrl:string= this.apiUrl+"getAll"
+    let newApiUrl:string= this.baseUrl+"/lessons/getAll"
     return this.httpClient.get<ListResponseModel<ListLesson>>(newApiUrl);
   }
 
- /*async delete(id:number){
-    const deleteObservable: Observable<any> = this.httpClientService.delete<any>({
-      controller:"lessons",
-      
-    },id);
-    await firstValueFrom(deleteObservable);
-  }*/
-
+ 
 delete(id:number){
-  let newApiUrl:string= this.apiUrl+id
+  let newApiUrl:string= this.baseUrl+"/lessons/"+id
   return this.httpClient.delete(newApiUrl);
 
 }
 
-getByLessonId(id:number){
-  let newApiUrl:string = this.baseUrl+"/lessons/getByLessonId?lessonId="+id
+update(lessonId:number, lesson:UpdateLesson){
+  let newApiUrl:string = this.baseUrl+"/lessons/update/"+lessonId;
+
+  return this.httpClient.put(newApiUrl,lesson);
+  debugger
+}
+
+getByLessonId(id:number):Observable<ListResponseModel<ListLesson>>{
+  
+  let newApiUrl:string = this.baseUrl+"/lessons/getByLessonId/"+id;
+ 
   return this.httpClient.get<ListResponseModel<ListLesson>>(newApiUrl);
 
 }

@@ -3,6 +3,7 @@
  <mat-select>
     <mat-option 
     *ngFor="let lesson of lessons" 
+    
     (click)="setCurrentLesson(lesson)"
     value="one">{{lesson.lessonName}}</mat-option>
     

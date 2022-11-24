@@ -1,11 +1,11 @@
 label {
     display: block;
-    margin-top: 10px;
+    margin-top: 1px;
   }
   
   .card-container.card {
     max-width: 400px !important;
-    height: 500px;
+    height: 750px;
     padding: 40px 40px;
   }
   

@@ -35,7 +35,7 @@ const routes: Routes = [
         children:[
          
           {
-            path:'update',
+            path:'update/:lessonId',
             loadChildren: () =>
             import('./admin/components/lessons/update/update.module').then(
               (module) => module.UpdateModule,
@@ -43,10 +43,7 @@ const routes: Routes = [
             },
 
         ]
-        /*loadChildren: () =>
-          import('./admin/components/lessons/lessons.module').then(
-            (module) => module.LessonsModule
-          ),*/
+        
       },
       {
         path: 'subjects',
@@ -123,7 +120,13 @@ const routes: Routes = [
       (module) => module.ExamsModule
     )
     },
-  
+    {
+      path:"about", 
+      loadChildren:() =>
+        import('./ui/components/about-app/about-app.module').then(
+          (module) => module.AboutAppModule
+        )
+    },
 
 ];
 

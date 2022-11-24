@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register.component';
-import { RouterModule } from '@angular/router';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  RouterModule } from '@angular/router';
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +16,8 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
       {path:"",component:RegisterComponent}
     ]),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
   ]
 })
 export class RegisterModule { }
